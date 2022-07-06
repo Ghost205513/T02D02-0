@@ -12,9 +12,6 @@ then
         read new_str
         touch temp
         sed -i '' 's/'$old_str'/'$new_str'/' $path
-        #size = $(ls -l $path | tr -s ' ' | cut -d ' ' -f 5)
-        #date_of_last_modificate = $(date -r $path +'%F %R')
-        #hash = $(shasum -a 256 path | cut -d ' ' -f 1)
         echo "$path - $(ls -l $path | tr -s ' ' | cut -d ' ' -f 5) - $(date -r $path +'%F %R') - $(shasum -a 256 $path | cut -d ' ' -f 1) - sha256" >> files.log
     else
         echo 'No such string in the file'
